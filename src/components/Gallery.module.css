@@ -1,0 +1,101 @@
+.section {
+  background: var(--void);
+  padding: var(--section-padding);
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+  position: relative;
+}
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--stone), transparent);
+}
+
+.header {
+  text-align: center;
+  padding: 0 clamp(24px, 6vw, 80px);
+  margin-bottom: 56px;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.h2 em { font-style: italic; color: var(--gold); }
+.sub {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--slate);
+}
+
+/* Track */
+.trackWrap {
+  overflow: hidden;
+  position: relative;
+}
+.trackWrap::before,
+.trackWrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+.trackWrap::before { left: 0; background: linear-gradient(to right, var(--void), transparent); }
+.trackWrap::after  { right: 0; background: linear-gradient(to left, var(--void), transparent); }
+
+.track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: scrollFwd 35s linear infinite;
+}
+.trackReverse { animation-direction: reverse; }
+.track:hover { animation-play-state: paused; }
+
+@keyframes scrollFwd {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Item */
+.item {
+  width: 300px;
+  height: 220px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
+.item svg { transition: transform 0.7s ease; }
+.item:hover svg { transform: scale(1.06); }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13,13,11,0);
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  transition: background 0.5s;
+}
+.item:hover .overlay { background: rgba(13,13,11,0.55); }
+
+.label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--cream);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.item:hover .label { opacity: 1; transform: translateY(0); }
