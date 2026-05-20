@@ -8,17 +8,26 @@
   justify-content: center;
 }
 
+/* ── Backgrounds ── */
 .bg {
   position: absolute;
   inset: -12%;
-  background:
-    radial-gradient(ellipse 70% 60% at 15% 85%, rgba(26, 40, 24, 0.9) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 85% 15%, rgba(42, 61, 40, 0.5) 0%, transparent 55%),
-    linear-gradient(175deg, #0A1008 0%, #0D0D0B 35%, #141410 70%, #1A1208 100%);
   will-change: transform;
+  transition: background 2.5s ease !important;
+}
+.bgNight {
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 85%, rgba(26,40,24,0.9) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 15%, rgba(42,61,40,0.5) 0%, transparent 55%),
+    linear-gradient(175deg, #0A1008 0%, #0D0D0B 35%, #141410 70%, #1A1208 100%);
+}
+.bgDay {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 0%, var(--sky-top) 0%, var(--sky-mid) 45%, var(--sky-low) 100%);
 }
 
-.stars {
+/* ── Stars (night) ── */
+.starsLayer {
   position: absolute;
   inset: 0;
   will-change: transform;
@@ -33,9 +42,174 @@
 }
 @keyframes twinkle {
   0%, 100% { opacity: var(--op, 0.3); transform: scale(1); }
-  50% { opacity: calc(var(--op, 0.3) + 0.3); transform: scale(1.4); }
+  50% { opacity: calc(var(--op, 0.3) + 0.3); transform: scale(1.5); }
 }
 
+/* Shooting star */
+.shootingStar {
+  position: absolute;
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(234,232,224,0.9), transparent);
+  transform: rotate(-28deg);
+  animation: shoot 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+@keyframes shoot {
+  0%   { transform: translateX(0) rotate(-28deg); opacity: 0; }
+  8%   { opacity: 1; }
+  100% { transform: translateX(600px) rotate(-28deg); opacity: 0; }
+}
+
+/* ── Moon ── */
+.moonWrap {
+  position: absolute;
+  top: 12%;
+  right: 14%;
+  z-index: 2;
+  will-change: opacity;
+}
+.moon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #EAE8E0;
+  opacity: 0.18;
+  position: relative;
+  z-index: 2;
+}
+.moonGlow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(234,232,224,0.12) 0%, transparent 70%);
+  animation: moonPulse 6s ease-in-out infinite;
+}
+@keyframes moonPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+}
+
+/* ── Day layer (sun, clouds, birds) ── */
+.dayLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* Sun */
+.sun {
+  position: absolute;
+  top: 12%;
+  right: 12%;
+}
+.sunCore {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--sun-color);
+  box-shadow: 0 0 40px 10px var(--sun-color), 0 0 80px 20px color-mix(in srgb, var(--sun-color) 40%, transparent);
+  animation: sunPulse 8s ease-in-out infinite;
+  transition: background 2.5s ease, box-shadow 2.5s ease;
+}
+.sunHalo {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--sun-color) 25%, transparent) 0%, transparent 70%);
+  animation: sunPulse 8s ease-in-out infinite 1s;
+}
+.sunHalo2 {
+  position: absolute;
+  inset: -44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--sun-color) 10%, transparent) 0%, transparent 70%);
+  animation: sunPulse 8s ease-in-out infinite 2s;
+}
+@keyframes sunPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.88; }
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  border-radius: 100px;
+  background: var(--cloud-col);
+  filter: blur(14px);
+  animation: drift linear infinite;
+  transition: background 2.5s ease;
+}
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: inherit;
+}
+.cloud1 {
+  width: 220px; height: 60px;
+  top: 22%; left: 5%;
+  animation-duration: 55s;
+  opacity: 0.7;
+}
+.cloud1::before { width: 100px; height: 80px; top: -30px; left: 40px; }
+.cloud1::after  { width: 70px;  height: 60px; top: -20px; left: 120px; }
+
+.cloud2 {
+  width: 160px; height: 44px;
+  top: 30%; left: 30%;
+  animation-duration: 75s;
+  animation-delay: -20s;
+  opacity: 0.5;
+}
+.cloud2::before { width: 80px; height: 60px; top: -24px; left: 30px; }
+
+.cloud3 {
+  width: 280px; height: 70px;
+  top: 16%; right: 28%;
+  animation-duration: 90s;
+  animation-delay: -40s;
+  opacity: 0.55;
+}
+.cloud3::before { width: 120px; height: 90px; top: -34px; left: 55px; }
+.cloud3::after  { width: 90px;  height: 70px; top: -26px; left: 160px; }
+
+@keyframes drift {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(110vw); }
+}
+
+/* Birds */
+.bird {
+  position: absolute;
+  width: 28px;
+  height: 10px;
+  animation: flyBird linear infinite;
+  transform-origin: center;
+}
+.bird::before, .bird::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  border-top: 2px solid var(--bird-col);
+  border-radius: 50% 50% 0 0;
+  animation: wingFlap 0.7s ease-in-out infinite alternate;
+  transition: border-color 2.5s ease;
+}
+.bird::before { right: 14px; border-radius: 50% 0 0 0; transform-origin: right center; }
+.bird::after  { left: 14px;  border-radius: 0 50% 0 0; transform-origin: left center; }
+
+@keyframes wingFlap {
+  0%   { transform: scaleY(0.2); }
+  100% { transform: scaleY(1); }
+}
+@keyframes flyBird {
+  0%   { transform: translateX(-120px); }
+  100% { transform: translateX(110vw); }
+}
+
+/* ── Mountain layers ── */
 .layer {
   position: absolute;
   bottom: 0;
@@ -74,6 +248,7 @@
   margin-bottom: 28px;
   opacity: 0;
   animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+  transition: color 2.5s ease !important;
 }
 
 .title {
@@ -85,24 +260,27 @@
   letter-spacing: -0.02em;
   opacity: 0;
   animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
+  transition: color 2.5s ease !important;
 }
 .title em {
   font-style: italic;
   color: var(--gold);
   display: block;
   font-size: 0.82em;
+  transition: color 2.5s ease !important;
 }
 
 .tagline {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-size: clamp(1rem, 2.2vw, 1.22rem);
   font-style: italic;
   color: var(--ash);
   margin-top: 32px;
   line-height: 1.6;
-  letter-spacing: 0.02em;
   opacity: 0;
   animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+  transition: color 2.5s ease !important;
+  min-height: 3em;
 }
 
 .meta {
@@ -116,15 +294,17 @@
   font-weight: 300;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--stone);
+  color: var(--slate);
   opacity: 0;
   animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 1s forwards;
+  transition: color 2.5s ease !important;
 }
 .metaDot {
   width: 3px; height: 3px;
   border-radius: 50%;
   background: var(--gold-dim);
   display: inline-block;
+  transition: background 2.5s ease !important;
 }
 
 .actions {
@@ -148,7 +328,7 @@
   border: none;
   padding: 14px 36px;
   cursor: none;
-  transition: background 0.35s, transform 0.3s;
+  transition: background 0.35s, transform 0.3s !important;
 }
 .btnPrimary:hover { background: var(--gold-pale); transform: translateY(-2px); }
 
@@ -163,24 +343,23 @@
   border: 1px solid var(--stone);
   padding: 14px 36px;
   cursor: none;
-  transition: color 0.35s, border-color 0.35s, transform 0.3s;
+  transition: color 0.35s, border-color 0.35s, transform 0.3s !important;
 }
 .btnGhost:hover { color: var(--fog); border-color: var(--ash); transform: translateY(-2px); }
 
 /* Scroll cue */
 .scrollCue {
   position: absolute;
-  bottom: 40px;
-  left: 50%;
+  bottom: 40px; left: 50%;
   transform: translateX(-50%);
   opacity: 0;
   animation: fadeUp 1s ease 2.2s forwards;
 }
 .scrollLine {
-  width: 1px;
-  height: 56px;
+  width: 1px; height: 56px;
   background: linear-gradient(to bottom, transparent, var(--gold-dim));
   animation: pulse 2.5s ease-in-out infinite;
+  transition: background 2.5s ease !important;
 }
 @keyframes pulse {
   0%   { transform: scaleY(0); transform-origin: top; }

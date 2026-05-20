@@ -12,11 +12,13 @@ import Expansion from '@/components/Expansion';
 import Footer from '@/components/Footer';
 import Lightbox from '@/components/Lightbox';
 import RevealInit from '@/components/RevealInit';
+import ThemeController from '@/components/ThemeController';
 
 export default function Home() {
   return (
     <>
       <Cursor />
+      <ThemeController />
       <Navbar />
       <main>
         <Hero />

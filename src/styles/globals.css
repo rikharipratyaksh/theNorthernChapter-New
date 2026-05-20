@@ -1,17 +1,144 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:wght@300;400;500&display=swap');
 
-/* ─────────────────────────────────────────
-   DESIGN TOKENS — Frozen Woods × TNC
-   Premium, restrained, emotionally calm
-───────────────────────────────────────── */
-:root {
-  /* Backgrounds */
-  --void:    #0D0D0B;      /* near-black, forest at midnight */
-  --deep:    #141410;      /* primary dark background */
-  --surface: #1C1C18;      /* card / panel surface */
-  --ridge:   #252520;      /* elevated surface */
+/* ════════════════════════════════════════════════════════
+   FROZEN WOODS × THE NORTHERN CHAPTER
+   4 Themes — each keyed to its own data-theme value
+   data-theme="parchment" | "mist" | "nordic" | "night"
+════════════════════════════════════════════════════════ */
 
-  /* Stone neutrals */
+
+/* ══════════════════════════════════════════════════════
+   THEME 1 — ALPINE PARCHMENT
+   data-theme="parchment"  ·  default / day fallback
+   Mood: literary · timeless · warm and refined
+══════════════════════════════════════════════════════ */
+:root,
+[data-theme="parchment"] {
+  --mode: light;
+  --void:    #F5F0E8;
+  --deep:    #EDE8DC;
+  --surface: #E4DDD0;
+  --ridge:   #D8D0C0;
+  --stone:   #B8AE9C;
+  --slate:   #8A8070;
+  --ash:     #5A5248;
+  --mist:    #3A342C;
+  --fog:     #2A2420;
+  --parchment: #F8F4EC;
+  --cream:   #1E1A14;
+  --gold:     #8A6A3A;
+  --gold-dim: #6A5230;
+  --gold-pale:#C4A870;
+  --pine-deep: #2A3A28;
+  --pine:      #3A5035;
+  --sage:      #5A7055;
+  --lichen:    #7A9070;
+  --sky-top:   #D4E4F0;
+  --sky-mid:   #E8F0F8;
+  --sky-low:   #F5F0E0;
+  --sun-color: #F0C060;
+  --cloud-col: rgba(255,255,255,0.75);
+  --bird-col:  #3A342C;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'EB Garamond', Georgia, serif;
+  --font-ui:      'Instrument Sans', sans-serif;
+  --section-padding: clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px);
+  --max-width: 1160px;
+  --theme-transition: 0.8s ease;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   THEME 2 — MORNING MIST
+   data-theme="mist"
+   Mood: serene · airy · contemplative
+══════════════════════════════════════════════════════ */
+[data-theme="mist"] {
+  --mode: light;
+  --void:    #F2F4F5;
+  --deep:    #E8ECEE;
+  --surface: #DDE3E7;
+  --ridge:   #CDD6DB;
+  --stone:   #A8B4BC;
+  --slate:   #788590;
+  --ash:     #4A5860;
+  --mist:    #2E3A42;
+  --fog:     #1E2830;
+  --parchment: #F6F8F9;
+  --cream:   #1A2228;
+  --gold:     #7A9060;
+  --gold-dim: #5A7048;
+  --gold-pale:#A4B890;
+  --pine-deep: #283820;
+  --pine:      #385030;
+  --sage:      #546848;
+  --lichen:    #708860;
+  --sky-top:   #C8D8E8;
+  --sky-mid:   #DDE8F0;
+  --sky-low:   #EEF4F8;
+  --sun-color: #E8D080;
+  --cloud-col: rgba(240,245,250,0.85);
+  --bird-col:  #2E3A42;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'EB Garamond', Georgia, serif;
+  --font-ui:      'Instrument Sans', sans-serif;
+  --section-padding: clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px);
+  --max-width: 1160px;
+  --theme-transition: 0.8s ease;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   THEME 3 — NORDIC RETREAT
+   data-theme="nordic"
+   Mood: modern · minimal · quietly luxurious
+══════════════════════════════════════════════════════ */
+[data-theme="nordic"] {
+  --mode: light;
+  --void:    #F8F8F6;
+  --deep:    #F0F0EE;
+  --surface: #E6E6E3;
+  --ridge:   #D8D8D4;
+  --stone:   #AEAEAA;
+  --slate:   #7A7A76;
+  --ash:     #4E4E4A;
+  --mist:    #303030;
+  --fog:     #1A1A1A;
+  --parchment: #FAFAFA;
+  --cream:   #141414;
+  --gold:     #8A7A5A;
+  --gold-dim: #6A5C40;
+  --gold-pale:#BAA880;
+  --pine-deep: #242C24;
+  --pine:      #343C34;
+  --sage:      #505850;
+  --lichen:    #707870;
+  --sky-top:   #D8E0E8;
+  --sky-mid:   #E8EEF4;
+  --sky-low:   #F4F6F8;
+  --sun-color: #E0C878;
+  --cloud-col: rgba(248,248,248,0.8);
+  --bird-col:  #303030;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'EB Garamond', Georgia, serif;
+  --font-ui:      'Instrument Sans', sans-serif;
+  --section-padding: clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px);
+  --max-width: 1160px;
+  --theme-transition: 0.8s ease;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   THEME 4 — DEEP FOREST NIGHT
+   data-theme="night"
+   Mood: intimate · contemplative · deeply atmospheric
+══════════════════════════════════════════════════════ */
+[data-theme="night"] {
+  --mode: dark;
+  --void:    #0D0D0B;
+  --deep:    #141410;
+  --surface: #1C1C18;
+  --ridge:   #252520;
   --stone:   #3A3A35;
   --slate:   #5A5A52;
   --ash:     #8A8A80;
@@ -19,52 +146,58 @@
   --fog:     #D4D4CC;
   --parchment: #EAE8E0;
   --cream:   #F4F2EA;
-
-  /* Accent — desaturated gold */
-  --gold:    #C4A96B;      /* primary accent */
-  --gold-dim: #8A7245;     /* muted gold */
-  --gold-pale: #E8D8A8;    /* lightest gold, near-cream */
-
-  /* Forest tones — for illustrations only */
+  --gold:    #C4A96B;
+  --gold-dim: #8A7245;
+  --gold-pale: #E8D8A8;
   --pine-deep: #1A2818;
   --pine:      #2A3D28;
   --sage:      #4A5E48;
   --lichen:    #6A7A68;
-
-  /* Typography scale */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'EB Garamond', Georgia, serif;
-  --font-ui:      'Instrument Sans', sans-serif;
-
-  /* Spacing rhythm */
-  --section-padding: clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px);
-  --max-width: 1160px;
+  --sky-top:   #060A10;
+  --sky-mid:   #0A1018;
+  --sky-low:   #0D0D0B;
+  --sun-color: transparent;
+  --cloud-col: transparent;
+  --bird-col:  transparent;
 }
 
-/* ─── RESET ─── */
+
+/* ════════════════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════════════════ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
+
 body {
   background: var(--deep);
-  color: var(--mist);
+  color: var(--ash);
   font-family: var(--font-ui);
   overflow-x: hidden;
   cursor: none;
   -webkit-font-smoothing: antialiased;
+  transition: background var(--theme-transition), color var(--theme-transition);
 }
 
-/* ─── GRAIN OVERLAY ─── */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 8000;
-  opacity: 1;
 }
 
-/* ─── SCROLL REVEAL ─── */
+*, *::before, *::after {
+  transition:
+    background-color var(--theme-transition),
+    border-color var(--theme-transition),
+    color var(--theme-transition),
+    box-shadow var(--theme-transition);
+}
+
+/* ════════════════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════════════════ */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -86,7 +219,9 @@ body::after {
 }
 .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
-/* ─── SECTION EYEBROW ─── */
+/* ════════════════════════════════════════════════════
+   SECTION EYEBROW
+════════════════════════════════════════════════════ */
 .eyebrow {
   font-family: var(--font-ui);
   font-size: 0.65rem;
@@ -106,14 +241,7 @@ body::after {
   background: var(--gold-dim);
   display: block;
   flex-shrink: 0;
+  transition: background var(--theme-transition);
 }
 
-/* ─── DIVIDER LINE ─── */
-.hairline {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--stone), transparent);
-}
-
-/* ─── SELECTION ─── */
-::selection { background: var(--gold-dim); color: var(--cream); }
+::selection { background: var(--gold-dim); color: var(--parchment); }

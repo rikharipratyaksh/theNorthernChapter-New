@@ -1,79 +1,15 @@
-.section {
-  background: var(--void);
-  padding: var(--section-padding);
-  position: relative;
-}
-.section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--stone), transparent);
-}
-
+.section { background: var(--void); padding: var(--section-padding); position: relative; }
+.section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--stone), transparent); }
 .inner { max-width: var(--max-width); margin: 0 auto; }
-
 .header { text-align: center; margin-bottom: 64px; }
-.h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1.1;
-}
+.h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; color: var(--cream); line-height: 1.1; }
 .h2 em { font-style: italic; color: var(--gold); }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--stone);
-  border: 1px solid var(--stone);
-}
-
-.card {
-  background: var(--void);
-  padding: 44px 36px;
-  transition: background 0.4s;
-  position: relative;
-}
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
+.card { background: var(--void); padding: 44px 36px; transition: background 0.4s; position: relative; }
 .card:hover { background: var(--surface); }
-
-.openQuote {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 3.5rem;
-  color: var(--gold-dim);
-  line-height: 0.6;
-  margin-bottom: 24px;
-  opacity: 0.5;
-}
-
-.quote {
-  font-family: var(--font-body);
-  font-size: 1.12rem;
-  font-style: italic;
-  line-height: 1.75;
-  color: var(--fog);
-  margin-bottom: 28px;
-}
-
+.openQuote { display: block; font-family: var(--font-display); font-size: 3.5rem; color: var(--gold-dim); line-height: 0.6; margin-bottom: 24px; opacity: 0.5; }
+.quote { font-family: var(--font-body); font-size: 1.12rem; font-style: italic; line-height: 1.75; color: var(--fog); margin-bottom: 28px; }
 .author { display: flex; flex-direction: column; gap: 4px; }
-.name {
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: var(--gold);
-  text-transform: uppercase;
-}
-.detail {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-style: italic;
-  color: var(--stone);
-}
-
-@media (max-width: 800px) {
-  .grid { grid-template-columns: 1fr; }
-}
+.name { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; }
+.detail { font-family: var(--font-body); font-size: 0.85rem; font-style: italic; color: var(--stone); }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }

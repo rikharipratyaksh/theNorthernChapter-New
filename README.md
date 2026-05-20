@@ -1,39 +1,78 @@
 # Frozen Woods × The Northern Chapter
-### A premium mountain homestay website — Next.js 14
-
----
-
-## Brand Architecture
-
-```
-The Northern Chapter (Parent Brand — a philosophy)
-  └── Frozen Woods (Property — the first chapter)
-       └── Mukteshwar, Uttarakhand · 2,286m
-```
+### Next.js 14 · Auto Day/Night · 4 Color Themes
 
 ---
 
 ## Quick Start
 
 ```bash
-# 1. Install dependencies
 npm install
-
-# 2. Run development server
 npm run dev
+# → http://localhost:3000
+```
 
-# 3. Open in browser
-http://localhost:3000
+## Build
+
+```bash
+npm run build && npm run start
 ```
 
 ---
 
-## Build for Production
+## Brand Architecture
 
-```bash
-npm run build
-npm run start
 ```
+The Northern Chapter  ← philosophy / parent brand
+  └── Frozen Woods    ← the first chapter / property
+       └── Mukteshwar, Uttarakhand · 2,286m
+```
+
+---
+
+## 🌗 Theme System
+
+### Auto Day / Night Detection
+
+The website automatically detects local time and applies:
+
+| Time          | Theme  |
+|---------------|--------|
+| 06:00 – 18:30 | Day    |
+| 18:30 – 06:00 | Night  |
+
+A **toggle button** (bottom-right corner) lets visitors override automatically.
+
+### Sky Animations
+
+**Day Mode:**
+- Glowing, pulsing sun
+- 3 drifting cloud layers
+- 5 animated birds with wing-flap motion
+- Warm gradient sky
+
+**Night Mode:**
+- 150 twinkling stars
+- Shooting stars at random intervals (4–14s)
+- Moon with soft glow pulse
+- Deep forest gradient sky
+
+---
+
+## 🎨 Color Themes (in `src/styles/globals.css`)
+
+### Theme 1 — Alpine Parchment ← **ACTIVE**
+Warm parchment, muted bronze, subtle pine. Literary, timeless.
+
+### Theme 2 — Morning Mist ← Uncomment to activate
+Mist grey, ivory, desaturated sage. Serene, airy, contemplative.
+
+### Theme 3 — Nordic Retreat ← Uncomment to activate
+Soft white, ash grey, restrained brass. Modern, minimal, quiet luxury.
+
+### Night — Deep Forest ← Always active at night
+Near-black, desaturated gold, pine tones. Intimate, atmospheric.
+
+**To switch light theme:** open `src/styles/globals.css`, uncomment desired `:root` block, comment the others.
 
 ---
 
@@ -42,89 +81,43 @@ npm run start
 ```
 src/
 ├── app/
-│   ├── layout.tsx       ← Root layout + metadata
-│   └── page.tsx         ← Page composition
+│   ├── layout.tsx          ← Metadata + font imports
+│   └── page.tsx            ← Page composition
 ├── components/
-│   ├── Cursor.tsx        ← Custom cursor (desktop only)
-│   ├── Navbar.tsx        ← Fixed nav — TNC/FW brand hierarchy
-│   ├── Hero.tsx          ← Parallax hero — Frozen Woods
-│   ├── Manifesto.tsx     ← Scrolling marquee strip
-│   ├── Story.tsx         ← Brand story + 3D image stack
-│   ├── Experience.tsx    ← Feelings not facilities (6 cards)
-│   ├── Gallery.tsx       ← Auto-scroll gallery + lightbox
-│   ├── Numbers.tsx       ← Animated stat counters
-│   ├── Booking.tsx       ← Curated enquiry form
-│   ├── Voices.tsx        ← Guest reflections
-│   ├── Expansion.tsx     ← Future collection teaser
+│   ├── ThemeController.tsx  ← Auto day/night + manual toggle
+│   ├── Cursor.tsx
+│   ├── Navbar.tsx
+│   ├── Hero.tsx             ← Parallax + day/night sky
+│   ├── Manifesto.tsx        ← Scrolling brand strip
+│   ├── Story.tsx            ← Brand story + 3D image stack
+│   ├── Experience.tsx       ← Feelings, not facilities
+│   ├── Gallery.tsx          ← Auto-scroll + lightbox
+│   ├── Numbers.tsx          ← Animated counters
+│   ├── Booking.tsx          ← Curated enquiry form
+│   ├── Voices.tsx           ← Guest reflections
+│   ├── Expansion.tsx        ← Future collection teaser
 │   ├── Footer.tsx
-│   ├── Lightbox.tsx      ← Gallery lightbox (event-driven)
-│   └── RevealInit.tsx    ← IntersectionObserver scroll reveals
+│   ├── Lightbox.tsx
+│   └── RevealInit.tsx
 ├── styles/
-│   └── globals.css       ← Design tokens + reset
+│   └── globals.css          ← All 4 themes + design tokens
 ```
-
----
-
-## Color System
-
-| Token         | Value     | Role                          |
-|---------------|-----------|-------------------------------|
-| `--void`      | `#0D0D0B` | Darkest background            |
-| `--deep`      | `#141410` | Primary dark background       |
-| `--surface`   | `#1C1C18` | Card/panel surface            |
-| `--ridge`     | `#252520` | Elevated surface              |
-| `--gold`      | `#C4A96B` | Primary accent (desaturated)  |
-| `--gold-dim`  | `#8A7245` | Muted gold                    |
-| `--gold-pale` | `#E8D8A8` | Lightest gold                 |
-| `--cream`     | `#F4F2EA` | Heading text                  |
-| `--ash`       | `#8A8A80` | Body text                     |
-| `--slate`     | `#5A5A52` | Secondary text                |
 
 ---
 
 ## Typography
 
-| Role    | Font                 | Usage                         |
-|---------|----------------------|-------------------------------|
-| Display | Playfair Display     | Headlines, hero title          |
-| Body    | EB Garamond          | Long-form copy, quotes         |
-| UI      | Instrument Sans      | Labels, nav, CTAs, eyebrows    |
+| Role    | Font              |
+|---------|-------------------|
+| Display | Playfair Display  |
+| Body    | EB Garamond       |
+| UI      | Instrument Sans   |
 
 ---
 
-## Key Features
+## Copy Philosophy
 
-- ✦ Multi-layer parallax hero (6 independent scroll depths)
-- ✦ Custom cursor with lag ring (desktop only)
-- ✦ Scroll-triggered reveal animations (IntersectionObserver)
-- ✦ Animated stat counters
-- ✦ Auto-scrolling dual-row gallery with pause-on-hover
-- ✦ Click-to-lightbox gallery items
-- ✦ 3D mouse-parallax image stack
-- ✦ Fully responsive (mobile nav with overlay menu)
-- ✦ Film grain texture overlay
-- ✦ SEO metadata via Next.js `metadata` API
-- ✦ Zero external dependencies beyond Next.js + React
+> Quiet. Intentional. Slightly exclusive.
+>
+> The user should feel: "I don't know exactly what this is — but I know it's for me."
 
----
-
-## Customisation
-
-**To add your real images:** Replace SVG scenes in `Gallery.tsx` with `<Image>` components from `next/image`.
-
-**To change contact details:** Edit `Booking.tsx` and `Footer.tsx`.
-
-**To update pricing:** Edit the `.pricing` block in `Booking.tsx`.
-
-**To add a new property (Chapter 02):** Update `Expansion.tsx` with the new name and location.
-
----
-
-## Design Philosophy
-
-> "The Northern Chapter is not a brand. It is a disposition."
-
-This website is intentionally selective in its language. It disqualifies the wrong guest
-before they enquire, and reassures the right one that they have found something rare.
-
-Positioning: quiet · intentional · deeply human · slightly exclusive.

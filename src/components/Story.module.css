@@ -6,144 +6,66 @@
 .section::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
+  top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(to right, transparent, var(--stone), transparent);
 }
-
 .inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 100px;
-  align-items: center;
+  max-width: var(--max-width); margin: 0 auto;
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 100px; align-items: center;
 }
-
-/* Typography */
 .h2 {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.5vw, 4rem);
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1.05;
-  margin-bottom: 36px;
+  font-weight: 400; color: var(--cream);
+  line-height: 1.05; margin-bottom: 36px;
 }
-.h2 em {
-  font-style: italic;
-  color: var(--gold);
-  display: block;
-  font-size: 0.88em;
-}
-
+.h2 em { font-style: italic; color: var(--gold); display: block; font-size: 0.88em; }
 .body {
   font-family: var(--font-body);
-  font-size: 1.15rem;
-  line-height: 1.85;
-  color: var(--ash);
-  margin-bottom: 24px;
+  font-size: 1.15rem; line-height: 1.85; color: var(--ash); margin-bottom: 24px;
 }
-
 .notForWrap {
-  margin-top: 48px;
-  padding: 28px 32px;
+  margin-top: 48px; padding: 28px 32px;
   border-left: 2px solid var(--stone);
-  background: rgba(58, 58, 53, 0.15);
+  background: color-mix(in srgb, var(--stone) 12%, transparent);
 }
 .notForLabel {
   display: block;
   font-family: var(--font-ui);
-  font-size: 0.64rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin-bottom: 16px;
+  font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-dim); margin-bottom: 16px;
 }
-.notForList {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+.notForList { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .notForList li {
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--slate);
-  padding-left: 18px;
-  position: relative;
+  font-size: 1rem; font-style: italic; color: var(--slate);
+  padding-left: 18px; position: relative;
 }
-.notForList li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--stone);
-}
-
-/* Image stack */
-.stack {
-  position: relative;
-  height: 540px;
-  transition: transform 0.08s ease-out;
-}
-
+.notForList li::before { content: '—'; position: absolute; left: 0; color: var(--stone); }
+.stack { position: relative; height: 540px; transition: transform 0.08s ease-out; }
 .card1 {
-  position: absolute;
-  top: 0; left: 0;
-  width: 72%;
-  height: 400px;
-  border-radius: 1px;
-  overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  position: absolute; top: 0; left: 0; width: 72%; height: 400px;
+  border-radius: 1px; overflow: hidden;
+  box-shadow: 0 32px 80px color-mix(in srgb, var(--void) 50%, transparent);
 }
 .card2 {
-  position: absolute;
-  bottom: 0; right: 0;
-  width: 58%;
-  height: 290px;
-  border-radius: 1px;
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  position: absolute; bottom: 0; right: 0; width: 58%; height: 290px;
+  border-radius: 1px; overflow: hidden;
+  box-shadow: 0 24px 60px color-mix(in srgb, var(--void) 40%, transparent);
 }
-
 .badge {
-  position: absolute;
-  right: -24px;
-  top: 42%;
+  position: absolute; right: -24px; top: 42%;
   background: var(--void);
-  border: 1px solid rgba(196,169,107,0.18);
+  border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent);
   padding: 18px 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg);
 }
-.badgeYear {
-  font-family: var(--font-ui);
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  color: var(--stone);
-  text-transform: uppercase;
-}
-.badgeName {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  color: var(--cream);
-  letter-spacing: 0.06em;
-}
-.badgeTnc {
-  font-family: var(--font-ui);
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  color: var(--gold-dim);
-  text-transform: uppercase;
-}
-
+.badgeYear { font-family: var(--font-ui); font-size: 0.55rem; letter-spacing: 0.2em; color: var(--stone); text-transform: uppercase; }
+.badgeName { font-family: var(--font-display); font-size: 0.75rem; color: var(--cream); letter-spacing: 0.06em; }
+.badgeTnc  { font-family: var(--font-ui); font-size: 0.55rem; letter-spacing: 0.2em; color: var(--gold-dim); text-transform: uppercase; }
 @media (max-width: 900px) {
   .inner { grid-template-columns: 1fr; gap: 60px; }
-  .stack { height: 380px; }
-  .badge { right: 0; }
+  .stack { height: 380px; } .badge { right: 0; }
 }

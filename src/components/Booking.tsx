@@ -46,11 +46,11 @@ export default function Booking() {
             </div>
           </div>
 
-          {/* <div className={`${styles.pricing} reveal`} style={{ transitionDelay: '0.34s' }}>
+          <div className={`${styles.pricing} reveal`} style={{ transitionDelay: '0.34s' }}>
             <span className={styles.pricingLabel}>From</span>
             <span className={styles.pricingVal}>₹3,500</span>
             <span className={styles.pricingNote}>per night · includes all meals</span>
-          </div> */}
+          </div>
         </div>
 
         {/* Right — form */}
