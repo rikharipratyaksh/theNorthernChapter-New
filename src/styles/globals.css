@@ -44,7 +44,11 @@
   --font-ui:      'Instrument Sans', sans-serif;
   --section-padding: clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px);
   --max-width: 1160px;
-  --theme-transition: 0.8s ease;
+  --theme-transition: 1.8s ease;
+  --section-sep: rgba(138,106,58,0.18);
+  --tag-bg:      rgba(138,106,58,0.1);
+  --tag-color:   #6A5230;
+  --card-hover:  rgba(138,106,58,0.06);
 }
 
 
@@ -84,7 +88,11 @@
   --font-ui:      'Instrument Sans', sans-serif;
   --section-padding: clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px);
   --max-width: 1160px;
-  --theme-transition: 0.8s ease;
+  --theme-transition: 1.8s ease;
+  --section-sep: rgba(90,112,72,0.18);
+  --tag-bg:      rgba(90,112,72,0.1);
+  --tag-color:   #5A7048;
+  --card-hover:  rgba(90,112,72,0.06);
 }
 
 
@@ -124,7 +132,11 @@
   --font-ui:      'Instrument Sans', sans-serif;
   --section-padding: clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px);
   --max-width: 1160px;
-  --theme-transition: 0.8s ease;
+  --theme-transition: 1.8s ease;
+  --section-sep: rgba(138,122,90,0.18);
+  --tag-bg:      rgba(138,122,90,0.1);
+  --tag-color:   #6A5C40;
+  --card-hover:  rgba(138,122,90,0.06);
 }
 
 
@@ -159,6 +171,10 @@
   --sun-color: transparent;
   --cloud-col: transparent;
   --bird-col:  transparent;
+  --section-sep: rgba(196,169,107,0.15);
+  --tag-bg:      rgba(196,169,107,0.1);
+  --tag-color:   #C4A96B;
+  --card-hover:  rgba(196,169,107,0.05);
 }
 
 
