@@ -490,7 +490,7 @@
   transition: background var(--theme-transition), color var(--theme-transition) !important;
 }
 .itemPrice {
-  font-family: var(--font-ui);
+  font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 400;
   color: var(--gold);
@@ -513,7 +513,7 @@
 .itemCardVariant:last-child { border-bottom: none; }
 .variantPrices { display: flex; gap: 24px; flex-shrink: 0; }
 .variantPrice {
-  font-family: var(--font-ui);
+  font-family: var(--font-display);
   font-size: 0.82rem;
   color: var(--gold);
   min-width: 56px;
